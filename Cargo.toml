@@ -14,13 +14,15 @@ exclude = ["media/*", "references/*"]
 [dependencies]
 embedded-hal = "0.2.3"
 
-[dev-dependencies]
-panic-halt = "0.2.0"
-
-[dev-dependencies.arduino-hal]
+# convert to dev-dep when arduino-hal/embedded-hal have
+# generic ADC/analog traits
+[dependencies.arduino-hal]
 git = "https://github.com/rahix/avr-hal"
 rev = "8ad1be6d95b075d13bca611d177a4cc8b9896d77"
 features = ["arduino-nano"]
+
+[dev-dependencies]
+panic-halt = "0.2.0"
 
 [profile.dev]
 panic = "abort"
